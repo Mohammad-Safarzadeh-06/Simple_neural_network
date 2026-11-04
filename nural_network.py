@@ -148,9 +148,3 @@ class neural_network_with_learning(neural_network):
                 self.layers[index_layer].norons[index_noron].weights = w_new
                 self.layers[index_layer].norons[index_noron].bias -= self.learning_rate * er
             er_output = new_er_output
-
-open('weights.txt' , 'w').write(str(a.get_weight_list()))
-
-while 1:
-    x , y = float(input('x: ')) , float(input('y: '))
-    print(a.forward([x , y]))
