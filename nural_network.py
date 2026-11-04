@@ -149,28 +149,6 @@ class neural_network_with_learning(neural_network):
                 self.layers[index_layer].norons[index_noron].bias -= self.learning_rate * er
             er_output = new_er_output
 
-
-
-a = neural_network_with_learning(2 , [4 , 4] , 2 , 'tanh' , 0.01)
-a.set_weights(eval(open('weights.txt' , 'r').read()))
-
-t = []
-for x in range(0 , 20):
-    for y in range(0 , 40):
-        y_t = 2 * x
-        case = [0 , 0]
-        if y_t < y:
-            case = [1 , 0]
-        else:
-            case = [0 , 1]
-        t.append(([x , y] , case))
-
-t = random.sample(t , len(t))
-
-for data in t:
-    for i in range(100):
-        a.train(data[0] , data[1])
-
 open('weights.txt' , 'w').write(str(a.get_weight_list()))
 
 while 1:
